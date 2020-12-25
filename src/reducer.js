@@ -26,6 +26,12 @@ const reducer = (state, action) => {
         console.warn(`cant resolve id: ${action.id}`);
       }
       return { ...state, basket: newBasket };
+      case "SET_USER":
+        return{
+          ...state, 
+          user: action.user
+        }
+
 
       break;
 

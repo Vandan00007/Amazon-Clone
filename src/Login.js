@@ -13,7 +13,7 @@ function Login() {
     const signIn = e => {
         e.preventDefault();
         auth.signInWithEmailAndPassword(email, password)
-            .auth(auth => {
+            .then(auth => {
               history.push('/')
             })
             .catch(error => alert(error.message))
@@ -55,7 +55,7 @@ function Login() {
                     <button type ='submit' onClick={signIn} className='login__signInButton'>Sign In</button>
                 </form>
                 <p>
-                    By signing-in you agree to the amazon clone conditions to use & sale. Please see our privacy notice, our cookies notice and our interest-based ads notice. 
+                    By signing-in you agree to the amazon FAKE clone conditions to Use & Sale. Please see our Privacy Notice, our Cookies Notice and our Interest-based Ads Notice. 
                 </p>
                 <button
                 onClick={register}

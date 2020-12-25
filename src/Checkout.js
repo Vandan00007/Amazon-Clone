@@ -4,9 +4,11 @@ import { getBasketTotal } from "./reducer";
 import "./Checkout.css";
 import CheckoutProduct from "./CheckoutProduct";
 import Subtotal from "./Subtotal";
+import userEvent from "@testing-library/user-event";
+
 
 function Checkout() {
-    const [{ basket }] = useStateValue();
+    const [{ basket, user }, dispatch] = useStateValue();
     return (
         <div className="checkout">
             <div className="checkout__left">
@@ -22,10 +24,13 @@ function Checkout() {
           </div>
         ) : (
           <div>
+            <h3>Hello, {user?.email}</h3>
             <h2 className='checkout__title'>Your Basket</h2>
+            
             {basket.map((item) => {
+             
               return (
-                <CheckoutProduct
+                 <CheckoutProduct
                   id={item.id}
                   title={item.title}
                   image={item.image}
@@ -34,6 +39,7 @@ function Checkout() {
                 ></CheckoutProduct>
               );
             })}
+            
           </div>
         )}
       </div>
